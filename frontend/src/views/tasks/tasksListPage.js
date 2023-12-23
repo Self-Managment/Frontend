@@ -17,7 +17,7 @@ import './style.css';
 
 const TasksListPage = () => {
 	const { desk_id } = useParams();
-	const [columns, setColumns] = useState([]);
+	const [ columns, setColumns ] = useState([]);
 
 	useEffect(() => {
 		Promise.all([tasksListRequest(desk_id), taskTypesListRequest(desk_id)])
@@ -38,7 +38,7 @@ const TasksListPage = () => {
 			ShowAlert.error({ message: 'Произошла неизвестная ошибка. Провертье консоль.' });
 			console.error('Error fetching data:', error);
 		});
-	});
+	}, []);
 
 	const handleDrop = (item, targetColumnIndex) => {
 		if (targetColumnIndex === 'bucket') {
