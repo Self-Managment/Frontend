@@ -1,42 +1,59 @@
 import React, { useState } from 'react';
-import { Dropdown } from 'react-bootstrap';
+import { OuterCard } from '../OuterCard';
+import { MyButton } from '../buttons/MyButton';
 
-const CheckboxDropdown = () => {
-  let selectedItems = [];
+const CheckboxDropdown = ({columns, setColumns}) => {
+	const [ filters, setFilters] = useState([
+		{title: 'На сегодня', selected: false}, 
+		{title: 'Скрытые', selected: false}
+	]);
+	const [ isShowWinow, setIsShowWindow ] = useState(false);
+	
+	const handleShow = () => {
+		setIsShowWindow(!isShowWinow)
+		console.log(!isShowWinow)
+	};
 
-  const handleCheckboxChange = (item) => {
-    const isSelected = selectedItems.includes(item);
-    console.log(item, isSelected)
+	const handleSelect = (itemIndex) => {
+		const updatedFilters = [...filters];
+		//const filter = updatedFilters[itemIndex];
+		updatedFilters[itemIndex].selected = !updatedFilters[itemIndex].selected;
+		setFilters(updatedFilters);
+	}
 
-    if (isSelected) {
-        selectedItems = selectedItems.filter((selected) => selected !== item);
-    } else {
-        selectedItems.push(item);
-    }
-  };
-
-  const checkboxItems = ['Элемент 1', 'Элемент 2', 'Элемент 3'];
-
-  return (
-    <Dropdown>
-      <Dropdown.Toggle variant="primary" id="dropdown-basic">
-        Фильтры
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
-        {checkboxItems.map((item, index) => (
-          <Dropdown.Item key={index} style={{display: 'flex', justifyContent: 'space-between'}}>
-                {item}
-                <input
-                type="checkbox"
-                checked={selectedItems.includes(item)}
-                onChange={() => handleCheckboxChange(item)}
-                ></input>
-          </Dropdown.Item>
-        ))}
-      </Dropdown.Menu>
-    </Dropdown>
-  );
+	return (
+		<div style={{display: 'flex', justifyContent: 'center'}}>
+			{isShowWinow ?
+				<OuterCard 
+					selfStyle={{
+						width: '300px',
+						zIndex: 1000,
+						position: 'absolute',
+						display: 'flex',
+						justifyContent: 'center',
+					}}
+				>
+					{
+						filters.length !== 0 &&
+						filters.map((item, index) => {
+							return <div style={{display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(0, 0, 0, 0.2)'}}>
+								<span>{item.title}</span>
+								<input type='checkbox' onClick={() => handleSelect(index)} checked={item.selected}></input>
+							</div>
+						})
+					}
+					<div style={{ marginTop: '20px' }}>
+						<MyButton style={{width: '100%',}} variant='danger' type='button' onClick={handleShow} shadowColor='red'>
+							Скрыть
+						</MyButton>
+					</div>
+				</OuterCard> :
+				<MyButton shadowColor='blue' onClick={handleShow}>
+					Фильтры
+				</MyButton>
+			}
+		</div>
+	);
 };
 
 export default CheckboxDropdown;

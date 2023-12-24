@@ -38,7 +38,7 @@ const TasksListPage = () => {
 			ShowAlert.error({ message: 'Произошла неизвестная ошибка. Провертье консоль.' });
 			console.error('Error fetching data:', error);
 		});
-	}, []);
+	}, [desk_id]);
 
 	const handleDrop = (item, targetColumnIndex) => {
 		if (targetColumnIndex === 'bucket') {
@@ -96,7 +96,7 @@ const TasksListPage = () => {
 			>
 				<div>{columns.length !== 0 && <BucketComponent onDrop={handleDrop}/>}</div>
 
-				<div>{columns.length !== 0 && <DropdownMenu />}</div>
+				{/* <div>{columns.length !== 0 && <DropdownMenu columns={columns} setColumns={setColumns}/>}</div> */}
 
 				<div>
 					{columns.length !== 0 && (
