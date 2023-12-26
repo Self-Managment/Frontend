@@ -35,6 +35,7 @@ const TasksTypesEditPage = () => {
 		taskTypesEditRequest(task_type_id, taskTypeData)
 		.then(response => {
 			if (response.status === 200) {
+				navigate(getTasksListUrl(desk_id));
 				return response.json();
 			};
 			ShowAlert.error({message: "Произошла неизвестаня ошибка"});
@@ -45,15 +46,12 @@ const TasksTypesEditPage = () => {
 				return;
 			};
 		})
-
-		navigate(getTasksListUrl(desk_id));
 	};
 
 	const handleDeleteTask = () => {
 		taskTypesDeleteRequest(task_type_id)
 		.then(response => {
 			if (response.status === 200) {
-				ShowAlert.success({message: "Тип задачи удален"})
 				navigate(getTasksListUrl(desk_id))
 				return
 			};

@@ -70,12 +70,15 @@ const TasksListPage = () => {
 		if (item.columnIndex !== undefined) {return};
 
 		const updatedColumns = columns.map((column, columnIndex) => {
-			if (columnIndex === targetColumnIndex && !column.items.find(i => i.id === item.id)) {
-				// Проверяем, что элемента нет уже в данной колонке
-				return { ...column, items: [...column.items, item] };
+			if (columnIndex === targetColumnIndex) {
+				if (!column.items.find(i => i.id === item.id)) {
+					// Проверяем, что элемента нет уже в данной колонке
+					return { ...column, items: [...column.items, item] };
+				};
 			} else if (column.items.find(i => i.id === item.id)) {
 				// Если элемент принадлежит другой колонке, удаляем его из текущей
 				let targetColumn = columns[targetColumnIndex];
+				//if (item in targetColumn)
 				tasksEditRequest(item.id, { type_id: targetColumn.id });
 				return { ...column, items: column.items.filter(i => i.id !== item.id) };
 			}

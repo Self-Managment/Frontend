@@ -28,7 +28,10 @@ const TasksEditPage = () => {
 		};
 		tasksEditRequest(task_id, taskData)
 		.then(response => {
-			if (response.status === 200) return response.json();
+			if (response.status === 200) {
+				navigate(getTasksListUrl(desk_id));
+				return response.json()
+			}
 			else ShowAlert.error({ message: 'Произошла неизвестная ошибка' });
 		})
 		.then(data => {
@@ -37,8 +40,6 @@ const TasksEditPage = () => {
 				return;
 			};
 		});
-
-		navigate(getTasksListUrl(desk_id));
 	};
 
 	const handleDeleteTask = () => {

@@ -19,6 +19,7 @@ const DesksCreatePage = () => {
 		desksCreateRequest({ title: title })
 			.then((response) => {
 				if (response.status === 201) {
+					navigate(DesksListRoutePath);
 					return response.json();
 				};
 			})
@@ -27,7 +28,6 @@ const DesksCreatePage = () => {
 					ShowAlert.warning({ message: data.detail });
 					return;
 				}
-				navigate(DesksListRoutePath);
 		});
 	};
 
