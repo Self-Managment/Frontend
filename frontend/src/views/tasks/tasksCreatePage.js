@@ -36,9 +36,8 @@ const TasksCreatePage = () => {
 					ShowAlert.warning({ message: data.detail });
 					return;
 				};
+				navigate(getTasksListUrl(desk_id));
 			});
-
-		navigate(getTasksListUrl(desk_id));
 	};
 
 	return (

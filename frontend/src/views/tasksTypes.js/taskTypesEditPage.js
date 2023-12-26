@@ -35,7 +35,6 @@ const TasksTypesEditPage = () => {
 		taskTypesEditRequest(task_type_id, taskTypeData)
 		.then(response => {
 			if (response.status === 200) {
-				navigate(getTasksListUrl(desk_id));
 				return response.json();
 			};
 			ShowAlert.error({message: "Произошла неизвестаня ошибка"});
@@ -45,6 +44,7 @@ const TasksTypesEditPage = () => {
 				ShowAlert.error({message: data.detail});
 				return;
 			};
+			navigate(getTasksListUrl(desk_id));
 		})
 	};
 
