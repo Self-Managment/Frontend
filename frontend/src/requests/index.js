@@ -3,7 +3,7 @@ import { ShowAlert } from '../utils/alerts_utils';
 
 import { TOKEN_TYPE, TOKEN_NAME } from "../constants"
 
-export const BASE_URL_TO_DO_LIST = 'http://127.0.0.1:8000/api';
+export const BASE_URL_TO_DO_LIST = 'http://95.163.231.52:8000/api';
 
 export const POST = 'POST';
 export const GET = 'GET';
