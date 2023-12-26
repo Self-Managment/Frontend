@@ -12,7 +12,7 @@ export const DeskComponent = ({ id, title, created_at }) => {
 
 	return (
 		<Card style={{ 
-			width: '300px', 
+			minWidth: '90%',
 			margin: '10px', 
 			boxShadow: isHovered ? '0 16px 32px rgba(0, 150, 0, 0.2)' : '0 8px 16px rgba(0, 0, 0, 0.1)',
 			transition: 'box-shadow 0.3s ease-in-out',

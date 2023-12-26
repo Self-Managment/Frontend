@@ -15,6 +15,8 @@ import { MyButton } from '../../components/buttons/MyButton';
 import DropdownMenu from '../../components/tasks/dropdownMenu';
 import './style.css';
 
+import { Col, Row } from 'react-bootstrap';
+
 const TasksListPage = () => {
 	const { desk_id } = useParams();
 	const [ columns, setColumns ] = useState([]);
@@ -90,43 +92,41 @@ const TasksListPage = () => {
 
 	return (
 		<DndProvider backend={HTML5Backend}>
-			<div
-				style={{ 
-					display: 'flex', 
-					justifyContent: columns.length !== 0 ? 'space-between' : 'flex-end', 
-					margin: '0 20px'
-				}}
-			>
-				<div>{columns.length !== 0 && <BucketComponent onDrop={handleDrop}/>}</div>
-
-				{/* <div>{columns.length !== 0 && <DropdownMenu columns={columns} setColumns={setColumns}/>}</div> */}
-
-				<div>
-					{columns.length !== 0 && (
-						<MyButton
-							style={{marginRight: '5px'}}
-							as={Link}
-							to={getTasksCreateUrl(
+			<div className="m-3">
+				<Row>
+					<Col xs={12} md={4}>
+						{columns.length !== 0 && <BucketComponent onDrop={handleDrop} />}
+					</Col>
+					<Col xs={12} md={4} style={{marginTop: '7px'}} />
+					<Col xs={12} md={4}>
+						<div className="d-flex justify-content-end">
+							{columns.length !== 0 && (
+							<MyButton
+								style={{ marginRight: '10px' }}
+								as={Link}
+								to={getTasksCreateUrl(
 								desk_id,
-								`${encodeURIComponent(JSON.stringify(
-									columns.map(({ id, title }) => ({ id, title }))
-								))}`
+								`${encodeURIComponent(JSON.stringify(columns.map(({ id, title }) => ({ id, title }))))}`
+								)}
+								variant="success"
+								className="mr-2"
+								shadowColor="green"
+							>
+								Создать задачу
+							</MyButton>
 							)}
-							variant='success'
-							shadowColor='green'
-						>
-							Создать задачу
-						</MyButton>
-					)}
-					<MyButton 
-						style={{ marginLeft: '5px' }} 
-						as={Link} to={getTasksTypesCreateUrl(desk_id)} 
-						variant='success' 
-						shadowColor='green'
-					>
-						Создать тип задач
-					</MyButton>
-				</div>
+							<MyButton
+								as={Link}
+								to={getTasksTypesCreateUrl(desk_id)}
+								variant="success"
+								className="mr-2"
+								shadowColor="green"
+							>
+								Создать тип задач
+							</MyButton>
+						</div>
+					</Col>
+				</Row>
 			</div>
 
 			<div className='scroll-container'>

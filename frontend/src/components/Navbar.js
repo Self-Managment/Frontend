@@ -35,8 +35,8 @@ const MyNavbar = () => {
 	return (
 		<Navbar expand='lg' style={{boxShadow: '0 0 6px gray'}}>
 			<Navbar.Toggle aria-controls='basic-navbar-nav' />
-			<Navbar.Collapse id='basic-navbar-nav' style={{ justifyContent: 'space-between' }}>
-				<div style={{ marginLeft: '20px' }}>
+			<Navbar.Collapse id='basic-navbar-nav' style={{ justifyContent: 'flex-end' }}>
+				{/* <div style={{ marginLeft: '20px' }}>
 					<Button
 						onClick={handleGoBack}
 						variant='primary'
@@ -53,7 +53,7 @@ const MyNavbar = () => {
 					>
 						Назад
 					</Button>
-				</div>
+				</div> */}
 
 				<Nav style={{marginRight: '20px'}}>
 					<Nav.Link as={Link} to={DesksListRoutePath}>

@@ -86,9 +86,9 @@ export const BucketComponent = ({ onDrop }) => {
 
 	return (
 		<div ref={(node) => drag(drop(node))}>
-			<Button 
+			<Button
 				variant="danger" 
-				className={`${!isOver ? 'disabled' : ''}`}
+				className={`${!isOver ? 'disabled' : ''} mr-2`}
 				style={{
 					boxShadow: isOver ? '0 0 8px red' : (canDrop ? '0 0 4px red' : ''), 
 					opacity: isOver ? 1 : (canDrop ? 0.5 : 0.3), 

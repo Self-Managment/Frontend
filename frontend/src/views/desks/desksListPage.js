@@ -50,7 +50,7 @@ const DesksListPage = () => {
 					</MyButton>
 				</div>
 
-				<div style={{ marginTop: '20px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', }}>
+				<div style={{ minWidth: '80%', marginTop: '20px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', }}>
 					{boards.map(board => (
 						<DeskComponent
 							key={board.id}
