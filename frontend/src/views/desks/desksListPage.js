@@ -51,6 +51,9 @@ const DesksListPage = () => {
 				</div>
 
 				<div style={{ minWidth: '80%', marginTop: '20px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', }}>
+					{
+						boards.length === 0 && <h2>Создайте доску</h2>
+					}
 					{boards.map(board => (
 						<DeskComponent
 							key={board.id}

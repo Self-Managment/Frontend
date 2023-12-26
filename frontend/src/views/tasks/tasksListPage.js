@@ -12,7 +12,6 @@ import { BucketComponent } from '../../components/tasksTypes/taskTypeComponent';
 import { getTasksCreateUrl } from '../../utils/urls/task_urls';
 import { getTasksTypesCreateUrl } from '../../utils/urls/task_type_urls';
 import { MyButton } from '../../components/buttons/MyButton';
-import DropdownMenu from '../../components/tasks/dropdownMenu';
 import './style.css';
 
 import { Col, Row } from 'react-bootstrap';
