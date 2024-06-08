@@ -16,6 +16,22 @@ import TasksEditPage from '../views/tasks/tasksEditPage';
 import TasksTypesCreatePage from '../views/tasksTypes.js/taskTypesCreatePage';
 import TasksTypesEditPage from '../views/tasksTypes.js/taskTypesEditPage';
 
+import BudgetPage from '../views/finance/budget/budgetPage';
+import BudgetSettingsMainPage from '../views/finance/budget/budgetSettingsMainPage';
+import OperationCategoryCreatePage from '../views/finance/operation/operationCategoryCreatePage';
+import BankCreatePage from '../views/finance/bank/bankCreatePage';
+import OperationCreatePage from '../views/finance/operation/operationCreatePage';
+
+import { 
+	BudgetGetRoutePath,
+	ReplenishmentCreateRoutePath,
+	ForgivenessCreateRoutePath,
+	BudgetSettingsMainRoutePath,
+	OperationCategoryCreateRoutePath,
+	BankCreateRoutePath,
+	OperationCreateRoutePath
+ } from '../utils/urls/budget_urls';
+
 import { DesksListRoutePath, DesksCreateRoutePath, DesksEditRoutePath } from '../utils/urls/desk_urls';
 import { TasksListRoutePath, TasksCreateRoutePath, TasksEditRoutePath } from '../utils/urls/task_urls';
 import { TasksTypesCreateRoutePath, TasksTypesEditRoutePath } from '../utils/urls/task_type_urls';
@@ -85,6 +101,36 @@ const AppRouter = () => {
 				<Route path={TasksTypesEditRoutePath} element={
 					<PageTemplate>
 					<TasksTypesEditPage />
+					</PageTemplate>
+				} />
+
+				<Route path={BudgetGetRoutePath} element={
+					<PageTemplate>
+					<BudgetPage />
+					</PageTemplate>
+				} />
+
+				<Route path={BudgetSettingsMainRoutePath} element={
+					<PageTemplate>
+					<BudgetSettingsMainPage />
+					</PageTemplate>
+				} />
+
+				<Route path={OperationCategoryCreateRoutePath} element={
+					<PageTemplate>
+					<OperationCategoryCreatePage />
+					</PageTemplate>
+				} />
+
+				<Route path={BankCreateRoutePath} element={
+					<PageTemplate>
+					<BankCreatePage />
+					</PageTemplate>
+				} />
+
+				<Route path={OperationCreateRoutePath} element={
+					<PageTemplate>
+					<OperationCreatePage />
 					</PageTemplate>
 				} />
 			</Routes>

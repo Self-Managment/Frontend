@@ -6,6 +6,7 @@ import { DesksListRoutePath } from '../utils/urls/desk_urls';
 import { AuthenticationRoutePath } from '../routers/AppRouter'
 import 'react-toggle/style.css';
 import { TOKEN_NAME } from '../constants';
+import { BudgetGetRoutePath } from '../utils/urls/budget_urls';
 
 const MyNavbar = () => {
 	const navigate = useNavigate();
@@ -37,6 +38,9 @@ const MyNavbar = () => {
 			<Navbar.Toggle aria-controls='basic-navbar-nav' />
 			<Navbar.Collapse id='basic-navbar-nav' style={{ justifyContent: 'flex-end' }}>
 				<Nav style={{marginRight: '20px'}}>
+					<Nav.Link as={Link} to={BudgetGetRoutePath}>
+						Мои финансы
+					</Nav.Link>
 					<Nav.Link as={Link} to={DesksListRoutePath}>
 						Мои доски
 					</Nav.Link>
